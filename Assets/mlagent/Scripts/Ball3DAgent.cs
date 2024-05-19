@@ -3,7 +3,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using Random = UnityEngine.Random;
-
+using Sirenix.OdinInspector;
 public class Ball3DAgent : Agent {
     [Header("Specific to Ball3D")]
     public GameObject ball;

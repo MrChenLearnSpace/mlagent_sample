@@ -18049,6 +18049,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3DBall
       objectReference: {fileID: 0}
+    - target: {fileID: 8853980385742060570, guid: b2768dc8b2b1f484cba3e729cb8a6284,
+        type: 3}
+      propertyPath: useVecObs
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8884747388044038879, guid: b2768dc8b2b1f484cba3e729cb8a6284,
         type: 3}
       propertyPath: m_Model
