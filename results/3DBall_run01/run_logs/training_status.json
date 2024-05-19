@@ -1,0 +1,56 @@
+{
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.1.0+cu121"
+    },
+    "3DBall": {
+        "checkpoints": [
+            {
+                "steps": 378153,
+                "file_path": "results\\3DBall_run01\\3DBall\\3DBall-378153.onnx",
+                "reward": 1.7307692124293401,
+                "creation_time": 1716111468.5645118,
+                "auxillary_file_paths": [
+                    "results\\3DBall_run01\\3DBall\\3DBall-378153.pt"
+                ]
+            },
+            {
+                "steps": 409216,
+                "file_path": "results\\3DBall_run01\\3DBall\\3DBall-409216.onnx",
+                "reward": 1.3164948007904786,
+                "creation_time": 1716112167.7234917,
+                "auxillary_file_paths": [
+                    "results\\3DBall_run01\\3DBall\\3DBall-409216.pt"
+                ]
+            },
+            {
+                "steps": 499987,
+                "file_path": "results\\3DBall_run01\\3DBall\\3DBall-499987.onnx",
+                "reward": 1.2781021316556165,
+                "creation_time": 1716113313.3846374,
+                "auxillary_file_paths": [
+                    "results\\3DBall_run01\\3DBall\\3DBall-499987.pt"
+                ]
+            },
+            {
+                "steps": 500015,
+                "file_path": "results\\3DBall_run01\\3DBall\\3DBall-500015.onnx",
+                "reward": 1.279636305028742,
+                "creation_time": 1716113313.4464726,
+                "auxillary_file_paths": [
+                    "results\\3DBall_run01\\3DBall\\3DBall-500015.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500015,
+            "file_path": "results\\3DBall_run01\\3DBall.onnx",
+            "reward": 1.279636305028742,
+            "creation_time": 1716113313.4464726,
+            "auxillary_file_paths": [
+                "results\\3DBall_run01\\3DBall\\3DBall-500015.pt"
+            ]
+        }
+    }
+}
