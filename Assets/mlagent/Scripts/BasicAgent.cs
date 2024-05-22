@@ -28,7 +28,7 @@ public class BasicAgent : Agent {
         var actionX = 1f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
         GetComponent<Rigidbody>().velocity += new Vector3(actionX, 0, actionZ);
         if (Vector3.Distance(transform.localPosition, goal.localPosition) < lastDistance) {
-            SetReward(0.1f);
+            SetReward(0.2f);
         }
         else {
             SetReward(-0.1f);
