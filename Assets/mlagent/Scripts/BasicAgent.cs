@@ -20,25 +20,21 @@ public class BasicAgent : Agent {
         SetResetParameters();
     }
     public override void CollectObservations(VectorSensor sensor) {
-        sensor.AddObservation(goal.localPosition);
-        sensor.AddObservation(transform.localPosition);
+        //sensor.AddObservation(goal.localPosition);
+        //sensor.AddObservation(transform.localPosition);
     }
     public override void OnActionReceived(ActionBuffers actionBuffers) {
-        var actionZ = 1f * Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
-        var actionX = 1f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
+        var actionZ = 3f * Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
+        var actionX = 3f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
+        print(actionX + " " + actionZ);
         GetComponent<Rigidbody>().velocity += new Vector3(actionX, 0, actionZ);
-        if (Vector3.Distance(transform.localPosition, goal.localPosition) < lastDistance) {
-            SetReward(0.2f);
-        }
-        else {
-            SetReward(-0.1f);
-        }
-        lastDistance = Vector3.Distance(transform.localPosition, goal.localPosition);
+       
     }
     public override void Heuristic(in ActionBuffers actionsOut) {
         var continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = -Input.GetAxis("Horizontal");
         continuousActionsOut[1] = Input.GetAxis("Vertical");
+        AddReward(-0.001f);
     }
     public void SetResetParameters() {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -61,14 +57,14 @@ public class BasicAgent : Agent {
     private void OnCollisionStay(Collision collision) {
         if (collision.collider.tag == "goal") {
             MeshRenderer.material = winMaterial;
-            SetReward(1f);
+            AddReward(10f);
             EndEpisode();
             print("OnCollisionStay");
 
         }
         if (collision.collider.tag == "wall") {
             MeshRenderer.material = loseMaterial;
-            SetReward(-1f);
+            AddReward(-1f);
             EndEpisode();
             print("OnCollisionStay");
 
