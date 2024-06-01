@@ -1057,6 +1057,7 @@ GameObject:
   - component: {fileID: 6331191698433531263}
   - component: {fileID: 5042779758727479603}
   - component: {fileID: 5042779758727479596}
+  - component: {fileID: 1169306822}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -1135,8 +1136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 0
+  DecisionPeriod: 9
+  TakeActionsBetweenDecisions: 1
 --- !u!114 &5042779758727479603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,11 +1153,12 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 500
+  MaxStep: 50000
   goal: {fileID: 66199395542912198}
   MeshRenderer: {fileID: 66199395983463456}
   winMaterial: {fileID: 2100000, guid: c67450f290f3e4897bc40276a619e78d, type: 2}
   loseMaterial: {fileID: 2100000, guid: 88b9ae7af2c1748a0a1f63407587a601, type: 2}
+  moveReward: -0.1
   lastDistance: 3.4028235e+38
 --- !u!54 &5042779758727479596
 Rigidbody:
@@ -1174,6 +1176,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1169306822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042779758727479602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 1
+  NumStepsToRecord: 120
+  DemonstrationName: first
+  DemonstrationDirectory: demo
 --- !u!1 &5042888330878729244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,9 +1312,10 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
   - goal
-  m_RaysPerDirection: 11
+  - wall
+  m_RaysPerDirection: 16
   m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.27
+  m_SphereCastRadius: 0
   m_RayLength: 20
   m_RayLayerMask:
     serializedVersion: 2

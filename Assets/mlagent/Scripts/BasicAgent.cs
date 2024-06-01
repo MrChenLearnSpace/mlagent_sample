@@ -9,7 +9,7 @@ public class BasicAgent : Agent {
     public EnvironmentParameters m_ResetParams;
     public Material winMaterial;
     public Material loseMaterial;
-
+    public float moveReward = -0.01f;
     public float lastDistance = float.MaxValue;
     // Start is called before the first frame update
     public override void Initialize() {
@@ -27,14 +27,14 @@ public class BasicAgent : Agent {
         var actionZ = 3f * Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
         var actionX = 3f * Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
         print(actionX + " " + actionZ);
-        GetComponent<Rigidbody>().velocity += new Vector3(actionX, 0, actionZ);
-       
+        GetComponent<Rigidbody>().velocity = new Vector3(actionX, 0, actionZ);
+        AddReward(moveReward);
     }
     public override void Heuristic(in ActionBuffers actionsOut) {
         var continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = -Input.GetAxis("Horizontal");
         continuousActionsOut[1] = Input.GetAxis("Vertical");
-        AddReward(-0.001f);
+        //AddReward(-0.001f);
     }
     public void SetResetParameters() {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
